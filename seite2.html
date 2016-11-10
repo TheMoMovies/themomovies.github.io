@@ -9,7 +9,16 @@
     </style>
   </head>
   <body>
-      </p> Hallo! <p>
+      <script language="javascript" type="text/javascript">
+
+function passwort(form) {
+location.replace(form.pass.value);
+}
+
+</script>
+<form name="geheim" id="geheim">
+    <input type="text" name="pass" /> <input type="button" value="Lets Go!" onclick="passwort(this.form)" />
+</form>
   </body>
 </html>
 
