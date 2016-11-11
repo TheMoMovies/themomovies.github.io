@@ -15,10 +15,11 @@ function passwort(form) {
 window.location = form.url.value
 }
 
+        document.getElementById("johannes").onclick = passwort(this.form);
 </script>
 
 <form name="geheim" id="geheim">
-    <input type="text" value="http://" name="url" /> <input type="button" value="Lets Go!" onclick="passwort(this.form)" />
+    <input type="text" value="http://" name="url" /> <button type="button"  id="johannes">Los gehts!</button> 
 </form>
   </body>
 </html>
