@@ -11,7 +11,7 @@
   <body>
       <script language="javascript" type="text/javascript">
 
-function passwort(form) {
+function passwort() {
 window.location = form.url.value
 }
 
@@ -19,7 +19,7 @@ window.location = form.url.value
 </script>
 
 <form name="geheim" id="geheim">
-    <input type="text" value="http://" name="url" onchange="passwort(this.form)"/> 
+    <input type="url" value="http://" name="url" onchange="passwort()"/> 
 </form>
   </body>
 </html>
