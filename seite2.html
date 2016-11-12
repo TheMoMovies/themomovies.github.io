@@ -12,14 +12,15 @@
       <script language="javascript" type="text/javascript">
 
 function passwort() {
-window.location = form.url.value
+  var ort = document.getElementById("url1").value
+  window.location = ort
 }
 
         
 </script>
 
 <form name="geheim" id="geheim">
-    <input type="url" value="http://" name="url" onchange="passwort()"/> 
+    <input id="url1" type="url" value="http://" name="url" onchange="passwort()"/> 
 </form>
   </body>
 </html>
