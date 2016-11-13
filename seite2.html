@@ -18,6 +18,29 @@ function geheZu() {
 </script>
   </head>
   <body>
+    
+    
+    
+    <script Language="JavaScript">
+function AlertName()
+{
+var Anrede;
+Anrede=document.formular1.name.value;
+if(document.formular1.name.value == "")
+{
+Anrede='Namenlos';
+}
+alert('Hallo, ' + Anrede + '! Wie geht es dir?');
+return false;
+}
+</script>
+    
+    
+    <form name="formular1" action="#" onSubmit="return AlertName()">
+<p>Dein Name:
+<input type="text" name="name">
+<input type="submit" name="Abschicken" value="go">
+</form>
   
 <form name="geheim" id="geheim">
     <input action="#" id="url1" type="url" value="http://" name="url1" onchange= "geheZu()"/> 
