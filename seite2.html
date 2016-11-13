@@ -7,43 +7,25 @@
       
     
     </style>
-          <script language="javascript" type="text/javascript">
-
-function geheZu() {
-  var ort = document.geheim.url1.value
-  location = ort
-}
-
-        
-</script>
-  </head>
-  <body>
-    
-    
     
     <script Language="JavaScript">
-function AlertName()
+function geheZu()
 {
-var Anrede;
-Anrede=document.formular1.name.value;
-location=Anrede
-alert('Hallo, ' + Anrede + '! Wie geht es dir?');
+var Ort;
+Ort=document.formular1.name.value;
+location=Ort
+alert('Du gehst jetzt zu:' + Ort);
 return false;
 }
 </script>
     
+    </head>
+  <body>
     
-    <form name="formular1" action="#" onSubmit="return AlertName()">
-<p>Dein Name:
-<input type="text" name="name">
+    <form name="formular1" action="#" onSubmit="return geheZu()">
+<input type="text" value="http://" name="name">
 <input type="submit" name="Abschicken" value="go">
 </form>
   
-<form name="geheim" id="geheim">
-    <input action="#" id="url1" type="url" value="http://" name="url1" onchange= "geheZu()"/> 
-</form>
   </body>
 </html>
-
-
-
