@@ -7,20 +7,20 @@
       
     
     </style>
-  </head>
-  <body>
-      <script language="javascript" type="text/javascript">
+          <script language="javascript" type="text/javascript">
 
 function geheZu() {
   var ort = document.geheim.url1.value
-  location.assign(ort)
+  location = ort
 }
 
         
 </script>
-
+  </head>
+  <body>
+  
 <form name="geheim" id="geheim">
-    <input id="url1" type="text" value="http://" name="url1" onchange= geheZu()/> 
+    <input action="#" id="url1" type="url" value="http://" name="url1" onchange= "geheZu()"/> 
 </form>
   </body>
 </html>
