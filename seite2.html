@@ -11,7 +11,7 @@
   <body>
       <script language="javascript" type="text/javascript">
 
-function passwort() {
+function geheZu() {
   var ort = document.geheim.url1.value
   location.assign(ort)
 }
@@ -20,7 +20,7 @@ function passwort() {
 </script>
 
 <form name="geheim" id="geheim">
-    <input id="url1" type="text" value="http://" name="url1" onchange="return passwort()"/> 
+    <input id="url1" type="text" value="http://" name="url1" onchange= geheZu()/> 
 </form>
   </body>
 </html>
