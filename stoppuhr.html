@@ -1,0 +1,88 @@
+<html>
+<head>
+  <title>Stoppuhr</title>
+  <link href="https://fonts.googleapis.com/css?family=Special+Elite" rel="stylesheet">
+<style>
+ #Buttons {
+	position: absolute;
+	bottom: 1em;
+	left: 2em;
+	}
+
+ #Uhr {
+	position: absolute;
+	left: 2em;
+	top: 2em;
+	font: normal small-caps normal 120px/150% 'Special Elite';
+    color: #16a085;
+	text-shadow: 5px 5px 8px black;
+	}
+ .button {
+	background-color: #16a085; 
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+	}
+ .button:hover {
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+</style>
+</head>
+ <div id="holePage">
+
+ <div id="Uhr"></div>
+  <script type="text/javascript">
+	var Sec = 0;
+	var Std = 0;
+	var Min = 0;
+	var to;
+	var Anzeige = Std + ":" + Min + ":" + Sec;
+	var div = document.getElementById("Uhr");
+	div.textContent = Anzeige;
+	var text = div.textContent;
+    function uhrZeit() {
+		Sec = Sec + 1;
+		if (Sec >= 60) {
+			Sec = Sec - 60;
+			Min = Min + 1;
+			}
+		if (Min >= 60) {
+			Min = Min - 60;
+			Std = Std + 1;
+			}
+			
+		var Anzeige = Std + ":" + Min + ":" + Sec;
+		var div = document.getElementById("Uhr");
+		div.textContent = Anzeige;
+		var text = div.textContent;
+
+    }
+	function startUhr() {
+		to = setInterval("uhrZeit()", 1000)
+	}
+	function stopUhr() {
+		clearInterval(to)
+	}
+    function resetUhr() {
+		Sec = 0;
+		Std = 0;
+		Min = 0;
+		var Anzeige = Std + ":" + Min + ":" + Sec;
+		var div = document.getElementById("Uhr");
+		div.textContent = Anzeige;
+		var text = div.textContent;
+	}
+</script>
+ <div id="Buttons">
+ <button class="button" onclick="startUhr()">Start</button>
+ <button class="button" onclick="stopUhr()">Stop</button>
+ <button class="button" onclick="resetUhr()">Reset</button>
+ </div>
+</div>
+<body>
+</body>
+</html>
