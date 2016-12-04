@@ -1,0 +1,41 @@
+<html>
+<head>
+  <title>Test</title>
+  <link href="https://fonts.googleapis.com/css?family=Special+Elite" rel="stylesheet">
+<style>
+ #holePage {
+	}
+ #Uhr {
+	position: absolute;
+	right: 2em;
+	top: 2em;
+	font: normal small-caps normal 120px/150% 'Special Elite';
+    color: #16a085
+	
+	}
+</style>
+</head>
+ <div id="holePage">
+ <div id="Uhr"></div>
+ <div id="Sekunden"></div>
+  <script type="text/javascript">
+	var to;
+    function uhrZeit() {
+        var jetzt = new Date();
+		var Std = jetzt.getHours();
+		var Min = jetzt.getMinutes();
+		var Sec = jetzt.getSeconds();
+		var Anzeige = Std + ":" + Min + ":" + Sec;
+		var div = document.getElementById("Uhr");
+		div.textContent = Anzeige;
+		var text = div.textContent;
+
+    }
+    to = setInterval("uhrZeit()", 1000)
+
+</script>
+ 
+</div>
+<body>
+</body>
+</html>
