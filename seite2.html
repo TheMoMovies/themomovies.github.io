@@ -7,7 +7,7 @@
        .button1 {
     background-color: #16a085;
     color: white;
-    padding: 6px;
+    padding: 16px;
     font-size: 16px;
     border: none;
     cursor: pointer;
@@ -72,12 +72,7 @@ return false;
     
     </head>
   <body>
-    
-    <form name="formular1" action="#" onSubmit="return geheZu()">
-<input type="text" value="http://" name="name">
-<input type="submit" class="button1" name="Abschicken" value="Los gehts!">
-</form>
-    
+
 <script>
 /* When the user clicks on the button, 
 toggle between hiding and showing the dropdown content */
@@ -100,6 +95,7 @@ window.onclick = function(event) {
   }
 }
 </script>
+	<div id="Menü">  
 	  <div class="dropdown">
   <button onclick="myFunction()" class="dropbtn">Gespeichert</button>
   <div id="myDropdown" class="dropdown-content">
@@ -113,6 +109,12 @@ window.onclick = function(event) {
     <a href="http://www.kicker.de">Kicker</a>
     
   </div>
+</div>
+	 
+    <form name="formular1" action="#" onSubmit="return geheZu()">
+<input type="text" class="button1" value="http://" name="name">
+<input type="submit" class="button1" name="Abschicken" value="Los gehts!">
+</form>	
 </div>
 
   
