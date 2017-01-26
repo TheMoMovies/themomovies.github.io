@@ -1,0 +1,356 @@
+<html>
+<head>
+  <title>Test</title>
+  <link href="https://fonts.googleapis.com/css?family=Special+Elite|Open+Sans" rel="stylesheet">
+	<style>
+		#Themenbox {
+			position: absolute;
+			top: 0em;
+			left: 0em;
+			bottom: 0em;
+			width: 60%;
+			border: 0px dashed #F00;
+		}
+		#Redezeit {
+			position: absolute;
+			bottom: 0em;
+			right: 0em;
+			width: 40%;
+			height: 49%;
+			border: 0px dashed #F00;
+		}
+		#RedeDisplay {
+			position: absolute;
+			right: 1em;
+			bottom: 1em;
+			font: 120px/150% 'Special Elite';
+    		color: #16a085;
+		}
+		#Umfrage {
+			position: absolute;
+			top: 0em;
+			right: 0em;
+			width: 40%;
+			height: 49%;
+			border: 0px dashed #F00;
+		}
+		#Buttons {
+			position: absolute;
+			bottom: 1em;
+			right: 1em;
+			border: 0px dashed #F00;
+		}
+		.button {
+			background-color: #16a085; 
+			border: none;
+			color: white;
+			padding: 12px 32px;
+			text-align: center;
+			text-decoration: none;
+			display: inline-block;
+			font-size: 16px;
+			border-radius: 2px;
+		}
+		.button:hover {
+			box-shadow: 0 12px 12px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+		}
+		
+		.Thema {
+			position: absolute;
+			font: 50px/150% 'Open Sans';
+    		color: #550055;
+			border: 0px dashed #F00;
+		}
+		.Zeit {
+			position: absolute;
+			font:50px/150% 'Special Elite';
+    		color: #00cd00;
+			border: 0px dashed #F00;
+		}
+
+	#gui {
+		position: absolute;
+		z-index:2;
+		top: 1em;
+		right: 1em;
+		width: 100%;
+		height: 100%;
+		border: 0px dashed #F00;
+		visibility: hidden;
+		background-color: #D8D8D8;
+		border-radius: 2px;
+	}
+	#Balken {
+		position: relative;
+		top: 2.5em;
+		right: 1em;
+		width: 100%;
+		height: 80%;
+		border: 0px dashed #F00;
+	}
+	#BalkenUI {
+		position: relative;
+		font: 25px/100% 'Open Sans';
+    	color: #550055;
+		top: 1em;
+		right: 1em;
+		width: 100%;	
+		border: 0px dashed #F00;
+	}
+	.HintergrundBalken {
+		position: absolute;
+		width: 100%;
+		height: 25%;
+		background-color: #D8D8D8;
+		border-radius: 4px;
+	}
+	.VordergrundBalken {
+		position: absolute;
+		font: 25px/200% 'Open Sans';
+    	color: #550055;
+		text-indent: 1em;
+		white-space: nowrap;
+		width: 0%;
+		height: 100%;
+		background-color: #FE9A2E;
+		border-radius: 4px;
+		text-shadow: 3px 3px 20px black;
+	}
+
+	</style>
+	<script type="text/javascript">
+		var zielzeit = "Dec 26 2016 14:00:00 GMT+0100 (CET)"
+		var extrazeit = 0;
+		var zeitspanne;
+		var interval;
+	
+		function countDownUp() {
+			zeitspanne =  Date.parse(zielzeit) - Date.parse(new Date());
+			zeitspanne = zeitspanne + extrazeit;
+			var seconds = Math.floor( (zeitspanne/1000) % 60 );
+  			var minutes = Math.floor( (zeitspanne/1000/60) % 60 );
+  			var hours = Math.floor( (zeitspanne/(1000*60*60)) % 24 );
+  			var days = Math.floor( zeitspanne/(1000*60*60*24) );
+  			
+			if (days < 1 )
+				var Anzeige =('0' + hours).slice(-2) + ":" + ('0' + minutes).slice(-2) + ":" + ('0' + seconds).slice(-2);
+			if (days < 1 && hours < 1)
+				var Anzeige = ('0' + minutes).slice(-2) + ":" + ('0' + seconds).slice(-2);
+			if (days >= 1)
+				var Anzeige= days + ":" + ('0' + hours).slice(-2) + ":" + ('0' + minutes).slice(-2) + ":" + ('0' + seconds).slice(-2);
+				
+		
+			if(zeitspanne<=0){
+      			clearInterval(interval);
+      			Anzeige = "Zeit abgelaufen!";
+      			interval2 = setInterval("countDownUp2()", 1000);
+      			document.getElementById('Uhr').style.color = '#d50000';
+				document.getElementsByTagName("audio")[0].play();
+      		}
+      		var div = document.getElementById("Uhr");
+			div.textContent = Anzeige;
+		}
+		interval = setInterval("countDownUp()", 1000)
+		
+		var zielzeit2 = new Date();
+		var extrazeit2 = 5000;
+		var zeitspanne2;
+		var interval2;
+	
+		function countDownUp2() {
+			zeitspanne2 =  Date.parse(zielzeit2) - Date.parse(new Date());
+			zeitspanne2 = zeitspanne2 + extrazeit2;
+			var seconds2 = Math.floor( (zeitspanne2/1000) % 60 );
+  			var minutes2 = Math.floor( (zeitspanne2/1000/60) % 60 );
+  			var hours2 = Math.floor( (zeitspanne2/(1000*60*60)) % 24 );
+  			var days2 = Math.floor( zeitspanne2/(1000*60*60*24) );
+  			
+			if (days2 < 1 )
+				var Anzeige2 =('0' + hours2).slice(-2) + ":" + ('0' + minutes2).slice(-2) + ":" + ('0' + seconds2).slice(-2);
+			if (days2 < 1 && hours2 < 1)
+				var Anzeige2 = ('0' + minutes2).slice(-2) + ":" + ('0' + seconds2).slice(-2);
+			if (days2 >= 1)
+				var Anzeige2= days2 + ":" + ('0' + hours2).slice(-2) + ":" + ('0' + minutes2).slice(-2) + ":" + ('0' + seconds2).slice(-2);
+		
+			if(zeitspanne2<=0){
+      			clearInterval(interval2);
+      			Anzeige2 = "Zeit abgelaufen!";
+				interval3 = setInterval("countDownUp3()", 1000);
+      			document.getElementById('Uhr2').style.color = '#d50000';
+				document.getElementsByTagName("audio")[0].play();
+      			
+
+      		}
+      		var div = document.getElementById("Uhr2");
+			div.textContent = Anzeige2;
+		}
+		
+		var zielzeit3 = new Date();
+		var extrazeit3 = 100000;
+		var zeitspanne3;
+		var interval3;
+	
+		function countDownUp3() {
+			zeitspanne3 =  Date.parse(zielzeit3) - Date.parse(new Date());
+			zeitspanne3 = zeitspanne3 + extrazeit3;
+			var seconds3 = Math.floor( (zeitspanne3/1000) % 60 );
+  			var minutes3 = Math.floor( (zeitspanne3/1000/60) % 60 );
+  			var hours3 = Math.floor( (zeitspanne3/(1000*60*60)) % 24 );
+  			var days3 = Math.floor( zeitspanne3/(1000*60*60*24) );
+
+			if (days3 < 1 )
+				var Anzeige3 =('0' + hours3).slice(-2) + ":" + ('0' + minutes3).slice(-2) + ":" + ('0' + seconds3).slice(-2);
+			if (days3 < 1 && hours3 < 1)
+				var Anzeige3 = ('0' + minutes3).slice(-2) + ":" + ('0' + seconds3).slice(-2);
+			if (days3 >= 1)
+				var Anzeige3 = days3 + ":" + ('0' + hours3).slice(-2) + ":" + ('0' + minutes3).slice(-2) + ":" + ('0' + seconds3).slice(-2);
+		
+			if(zeitspanne3<=0){
+      			clearInterval(interval3);
+      			Anzeige3 = "Zeit abgelaufen!";
+      			document.getElementById('Uhr3').style.color = '#d50000';
+				document.getElementsByTagName("audio")[0].play();
+      			
+
+      		}
+      		var div = document.getElementById("Uhr3");
+			div.textContent = Anzeige3;
+		}
+		
+		var zeit = new Date();
+		var intervalzeit;
+		
+		function startRedeZeit() {
+			zeit = new Date();
+			clearInterval(intervalzeit)
+			intervalzeit = setInterval("Redezeit()", 1000);
+			document.getElementById('RedeDisplay').style.color = '#16a085';
+		}
+		function Redezeit() {
+			var redespanne = Date.parse(zeit) - Date.parse(new Date());
+			redespanne = redespanne + 150000;
+			var redesec = Math.floor( (redespanne/1000) % 60 );
+  			var redemin = Math.floor( (redespanne/1000/60) % 60 );
+			var RedeDisplay = redemin + ":" + ('0' + redesec).slice(-2);
+			
+			if (redespanne <= 0) {
+			clearInterval(intervalzeit);
+			RedeDisplay = "0:00";
+			document.getElementsByTagName("audio")[1].play();
+			document.getElementById('RedeDisplay').style.color = '#d50000';
+				}
+			
+			var div = document.getElementById("RedeDisplay");
+			div.textContent = RedeDisplay;
+		}
+		function stopRedezeit() {
+		clearInterval(intervalzeit)
+		}
+		document.onkeydown = function(event) {
+			if (event.keyCode == 82) {
+			startRedeZeit();
+			}
+			if (event.keyCode == 84) {
+			stopRedezeit();
+			}
+		}
+		
+		function startAuswertung() {
+		document.getElementById("gui").style.visibility= "visible";
+	}
+	function stopAuswertung() {
+		document.getElementById("gui").style.visibility= "hidden";
+	}
+	function Diagramm(){
+		var anzahlSchüler = parseInt(document.getElementById("anzahlschueler").value);
+		var antwort1 = parseInt(document.getElementById("anzahlantwort1").value);
+		var antwort2 = parseInt(document.getElementById("anzahlantwort2").value);
+		var Balken1Inhalt = "Pro: ";
+		var Balken2Inhalt = "Contra: ";
+		var Balken3Inhalt = "Enthalten: ";
+		
+		var Balken1 = Math.round((100/anzahlSchüler) * antwort1) + "%" ;
+		var Balken2 = Math.round((100/anzahlSchüler) * antwort2) + "%" ;
+		var Balken3 = Math.round((100/anzahlSchüler) * (anzahlSchüler-(antwort1+antwort2))) + "%" ;
+		if (Balken1>Balken2 && Balken1>Balken3) {
+			document.getElementById("VordergrundBalken1").style.backgroundColor = "#82FA58";
+			document.getElementById("VordergrundBalken2").style.backgroundColor = "#FF0000";
+			}
+		if (Balken2>Balken1 && Balken2>Balken3) {
+			document.getElementById("VordergrundBalken2").style.backgroundColor = "#82FA58";
+			document.getElementById("VordergrundBalken1").style.backgroundColor = "#FF0000";
+			}
+	
+		document.getElementById("VordergrundBalken1").textContent = Balken1Inhalt + Balken1;
+		document.getElementById("VordergrundBalken2").textContent = Balken2Inhalt + Balken2;
+		document.getElementById("VordergrundBalken3").textContent = Balken3Inhalt + Balken3;
+		document.getElementById("VordergrundBalken1").style.width = Balken1;
+		document.getElementById("VordergrundBalken2").style.width = Balken2;
+		document.getElementById("VordergrundBalken3").style.width = Balken3;
+	}
+
+  </script>
+
+</head>
+<body>
+<div id="Themenbox" >
+		<audio>
+			<source src="http://www.freesound.org/data/previews/121/121800_1525789-lq.mp3">
+			<source src="http://www.freesound.org/data/previews/121/121800_1525789-lq.ogg">
+		</audio>
+ 	<div style= "left: 2em; top: 1em;" class="Thema">
+    	1. Klassenraumgestaltung
+		<div  style= "left: 1em; top: 1.5em;" id="Uhr" class="Zeit"></div>
+	</div>
+ 	<div style= "left: 2em; top: 5em;" class="Thema">
+ 		2. Konflikte mit Lehrern
+ 		<div  id="Uhr2" style= "left: 1em; top: 1.5em;" class="Zeit"></div>
+ 	</div>
+
+	<div style= "left: 2em; top: 9em;" class="Thema">
+    	3. Konflikte mit Lehrern
+		<div  style= "left: 1em; top: 1.5em;" id="Uhr3" class="Zeit"></div>
+	</div>
+ </div>
+ <div id="Redezeit">
+	<div id="RedeDisplay"></div>
+	 <div id="Buttons">
+		<button class="button" onclick="startRedeZeit()">Start R</button>
+		<button class="button" onclick="stopRedezeit()">Stop T</button>
+		<audio>
+			<source src="http://www.freesound.org/data/previews/22/22627_7037-lq.mp3">
+			<source src="http://www.freesound.org/data/previews/22/22627_7037-lq.ogg">
+		</audio>
+	</div>
+ </div>
+ <div id="Umfrage">
+	<div id="gui">
+			   <form name="formular1" action="javascript:void(0);" onSubmit="Diagramm(); stopAuswertung()">
+					<input type="number" min="0" value="" id="anzahlschueler">
+					<input type="number" min="0" value="" id="anzahlantwort1">
+					<input type="number" min="0" value="" id="anzahlantwort2">
+					<input class="button" type="submit" value="Fertig!">
+				</form>
+			
+		
+		</div>
+		<div id="BalkenUI">
+			<div style="position:absolute; right:0em;"><button class="button" onclick="startAuswertung()">Start</button></div>
+			Umfrage<br>&nbsp;
+		</div>
+		<div id="Balken">
+			<div class="HintergrundBalken" id="HintergrundBalken1">
+				<div class="VordergrundBalken" id="VordergrundBalken1"></div>
+			</div>
+			<div class="HintergrundBalken" style="top: 35%" id="HintergrundBalken2">
+				<div class="VordergrundBalken" id="VordergrundBalken2"></div>
+			</div>
+			<div class="HintergrundBalken" style="top: 70%;" id="HintergrundBalken3">
+				<div class="VordergrundBalken" id="VordergrundBalken3"></div>
+			</div>
+		</div>
+ </div>
+</body>
+</html>
+
+
