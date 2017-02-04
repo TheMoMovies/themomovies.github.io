@@ -36,6 +36,7 @@
 
  <div id="Uhr"></div>
   <script type="text/javascript">
+	var allowstart = 1;
 	var Sec = 0;
 	var Std = 0;
 	var Min = 0;
@@ -62,13 +63,13 @@
 
     }
 	function startUhr() {
-		if(allowstart==1) {
+		if(allowstart == 1) {
 		   to = setInterval("uhrZeit()", 1000);
-		   var allowstart = 0;}
+		   allowstart = 0;}
 	}
 	function stopUhr() {
 		clearInterval(to)
-		var allowstart = 1;
+		allowstart = 1;
 	}
     function resetUhr() {
 		Sec = 0;
