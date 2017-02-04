@@ -62,10 +62,13 @@
 
     }
 	function startUhr() {
-		to = setInterval("uhrZeit()", 1000)
+		if(allowstart==1) {
+		   to = setInterval("uhrZeit()", 1000);
+		   var allowstart = 0;}
 	}
 	function stopUhr() {
 		clearInterval(to)
+		var allowstart = 1;
 	}
     function resetUhr() {
 		Sec = 0;
