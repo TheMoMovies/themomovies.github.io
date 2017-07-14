@@ -10,12 +10,11 @@ $.ajax({
   url: "http://vp.hbgym.de/w/28/w00016.htm",
   success: function(data) {
 	console.log(data);
+	document.getElementById("h1").innerHTML+= data;
   }
 });
-/*$.getJSON( "http://vp.hbgym.de/w/28/w00016.htm"+"?callback=?", function( data ){
-  console.log( data.title ); // Logs "jQuery Howto"
-});*/
 
-</script
+	</script>
+	<iframe id="h1"></iframe>
 </body>
 </html>
