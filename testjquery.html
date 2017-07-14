@@ -5,6 +5,9 @@
 </head>
 <body>
 <script>
+	window.onload = function () {
+	
+
 $.ajax({
   crossOrigin: true,
   url: "http://vp.hbgym.de/w/28/w00016.htm",
@@ -13,6 +16,7 @@ $.ajax({
 	document.getElementById("h1").innerHTML+= data;
   }
 });
+	}
 
 	</script>
 	<iframe id="h1"></iframe>
