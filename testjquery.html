@@ -4,15 +4,11 @@
 </head>
 <body>
 <script>
-// OR using $.ajax()
-$.ajax({
-  type:     "GET",
-  url:      "http://vp.hbgym.de/w/28/w00016.htm",
-  dataType: "jsonp",
-  success: function(data){
-    console.log(data);
-  }
+
+$.getJSON( "http://vp.hbgym.de/w/28/w00016.htm"+"?callback=?", function( data ){
+  console.log( data.title ); // Logs "jQuery Howto"
 });
+
 </script
 </body>
 </html>
