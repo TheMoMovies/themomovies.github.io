@@ -1,13 +1,20 @@
-html>
+<html>
 <head>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript" src="js/jquery.ajax-cross-origin.min.js"></script>
 </head>
 <body>
 <script>
-
-$.getJSON( "http://vp.hbgym.de/w/28/w00016.htm"+"?callback=?", function( data ){
-  console.log( data.title ); // Logs "jQuery Howto"
+$.ajax({
+  crossOrigin: true,
+  url: "http://vp.hbgym.de/w/28/w00016.htm",
+  success: function(data) {
+	console.log(data);
+  }
 });
+/*$.getJSON( "http://vp.hbgym.de/w/28/w00016.htm"+"?callback=?", function( data ){
+  console.log( data.title ); // Logs "jQuery Howto"
+});*/
 
 </script
 </body>
