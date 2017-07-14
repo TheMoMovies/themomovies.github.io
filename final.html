@@ -1,0 +1,29 @@
+<html>
+<head></head>
+<body>
+<iframe name="plan"src="http://vp.hbgym.de/w/28/w00016.htm" style="border-width:0" width="800" height="500" frameborder="0" scrolling="auto"></iframe>  
+
+<script> 
+function Farbe() {
+		var jetzt = new Date();
+        var tag = jetzt.getDate();
+        var monat = jetzt.getMonth();
+		var info = tag + "." + monat + ".";
+		
+		var oTable = window.frames["plan"].document.getElementsByTagName("TABLE");
+		
+        var rowLength = oTable.rows.length; 
+		
+        for (i = 0; i < rowLength; i++){ 
+		if (oTable.rows.item(i).cells.item(0).innerHTML == info){
+			oTable.rows.item(i).style.backgroundColor = "yellow";
+		} 
+        }
+		}
+		
+ window.onload = function () {
+	Farbe();
+    }
+	</script>
+</body>
+</html>
