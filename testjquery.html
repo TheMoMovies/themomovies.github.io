@@ -18,7 +18,10 @@
 		
         for (i = 0; i < rowLength; i++){ 
 		alert(oTable.rows.item(i).cells.item(0).innerHTML);
-		if (oTable.rows.item(i).cells.item(0).innerHTML == info){
+		/*if (oTable.rows.item(i).cells.item(0).innerHTML == info){
+			oTable.rows.item(i).style.backgroundColor = "yellow";
+		} */
+		if (oTable.rows.item(i).cells.item(0).innerHTML.indexOf(info) !== -1){
 			oTable.rows.item(i).style.backgroundColor = "yellow";
 		} 
         }
