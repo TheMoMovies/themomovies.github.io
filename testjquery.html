@@ -7,21 +7,18 @@
 	
 <script>
    function KalenderWoche() { var KWDatum = new Date(); var DonnerstagDat = new Date(KWDatum.getTime() + 
-  (3-((KWDatum.getDay()+6) % 7)) * 86400000); var KWJahr = DonnerstagDat.getFullYear(); var DonnerstagKW = new Date(new Date(KWJahr,0,4).getTime() + 
-  (3-((new Date(KWJahr,0,4).getDay()+6) % 7)) * 86400000); var KW = Math.floor(1.5 + (DonnerstagDat.getTime() - DonnerstagKW.getTime()) / 86400000/7); 
-  var url = "http://vp.hbgym.de/w/"+('0' + KW).slice(-2)+"/w00016.htm";
-  return url;			 
-}
-    
-        alert(KalenderWoche());
-  function Farbe() {
+  	(3-((KWDatum.getDay()+6) % 7)) * 86400000); var KWJahr = DonnerstagDat.getFullYear(); var DonnerstagKW = new Date(new Date(KWJahr,0,4).getTime() + 
+ 	 (3-((new Date(KWJahr,0,4).getDay()+6) % 7)) * 86400000); var KW = Math.floor(1.5 + (DonnerstagDat.getTime() - DonnerstagKW.getTime()) / 86400000/7); 
+  	var KW1 = ('0' + KW).slice(-2);
+  	return KW1;}
+  	
+  function Farbe(vort) {
+	
 	var jetzt = new Date();
-        var tag = 10; //jetzt.getDate();
+        var tag = jetzt.getDate()+vort;
         var monat = jetzt.getMonth()+ 1;
 	var info = tag + "." + monat + ".";
-        //var info = \"<font size="3" face="Arial" color="#000000"><B>\" + datum +\"</B></font>\"; 
-	alert(info);
-	var oTable = document.getElementById("plan").getElementsByTagName("TABLE")[0];//getElementsByTagName("TABLE")[0];
+	var oTable = document.getElementById("plan").getElementsByTagName("TABLE")[0];
 	alert(oTable);	
         var rowLength = oTable.rows.length; 
 	alert(rowLength);
@@ -39,10 +36,10 @@
 	
 	window.onload = function () {
 	
-
+var url = "http://vp.hbgym.de/w/"+(KalenderWoche()+vorw)+"/w00016.htm";
 $.ajax({
   crossOrigin: true,
-  url: "http://vp.hbgym.de/w/28/w00016.htm",
+  url: url,
   success: function(data) {
 	//console.log(data);
 	document.getElementById("h1").innerHTML+= data;
