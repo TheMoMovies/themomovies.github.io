@@ -4,7 +4,7 @@
 <script type="text/javascript" src="http://www.ajax-cross-origin.com/js/jquery.ajax-cross-origin.min.js"></script>
 </head>
 <body>
-	<div id="h1"></div>
+	
 <script>
 	function Farbe() {
 		var jetzt = new Date();
@@ -13,8 +13,7 @@
 	var info = tag + "." + monat + ".";
         //var info = \"<font size="3" face="Arial" color="#000000"><B>\" + datum +\"</B></font>\"; 
 	alert(info);
-	var divh1 = document.getElementById('h1');
-	var oTable = divh1.getElementsByTagName("table")[0];
+	var oTable = document.getElementById("plan").getElementsByTagName("TABLE");
 	alert(oTable);	
         var rowLength = oTable.rows.length; 
 	alert(rowLength);
@@ -45,6 +44,6 @@ $.ajax({
 	}
 
 	</script>
-	
+	<div id="plan"></div>
 </body>
 </html>
