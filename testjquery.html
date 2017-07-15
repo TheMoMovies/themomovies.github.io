@@ -11,7 +11,7 @@
         var monat = jetzt.getMonth();
 		var info = tag + "." + monat + ".";
 		
-		var oTable = document.getElementbyId("h1").getElementsByTagName("TABLE")[0];
+		var oTable = document.getElementById('h1').getElementsByTagName("TABLE")[0];
 		
         var rowLength = oTable.rows.length; 
 		
@@ -29,7 +29,7 @@ $.ajax({
   crossOrigin: true,
   url: "http://vp.hbgym.de/w/28/w00016.htm",
   success: function(data) {
-	console.log(data);
+	//console.log(data);
 	document.getElementById("h1").innerHTML+= data;
   }
 });
