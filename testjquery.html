@@ -9,14 +9,15 @@
 		var jetzt = new Date();
         var tag = 10; //jetzt.getDate();
         var monat = jetzt.getMonth();
-	var datum = tag + "." + monat + ".";
-        var info = \"<font size="3" face="Arial" color="#000000"><B>\" + datum +\"</B></font>\"; 
+	var info = tag + "." + monat + ".";
+        //var info = \"<font size="3" face="Arial" color="#000000"><B>\" + datum +\"</B></font>\"; 
 	alert(info);	
 	var oTable = document.getElementById('h1').getElementsByTagName("TABLE")[0];
 		
         var rowLength = oTable.rows.length; 
 		
         for (i = 0; i < rowLength; i++){ 
+		alert(oTable.rows.item(i).cells.item(0).innerHTML);
 		if (oTable.rows.item(i).cells.item(0).innerHTML == info){
 			oTable.rows.item(i).style.backgroundColor = "yellow";
 		} 
