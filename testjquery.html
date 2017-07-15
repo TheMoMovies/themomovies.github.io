@@ -6,8 +6,16 @@
 <body>
 	
 <script>
-	function Farbe() {
-		var jetzt = new Date();
+   function KalenderWoche() { var KWDatum = new Date(); var DonnerstagDat = new Date(KWDatum.getTime() + 
+  (3-((KWDatum.getDay()+6) % 7)) * 86400000); var KWJahr = DonnerstagDat.getFullYear(); var DonnerstagKW = new Date(new Date(KWJahr,0,4).getTime() + 
+  (3-((new Date(KWJahr,0,4).getDay()+6) % 7)) * 86400000); var KW = Math.floor(1.5 + (DonnerstagDat.getTime() - DonnerstagKW.getTime()) / 86400000/7); 
+  var url = "http://vp.hbgym.de/w/"+('0' + KW).slice(-2)+"/w00016.htm";
+  return url;			 
+}
+    
+        KalenderWoche()
+  function Farbe() {
+	var jetzt = new Date();
         var tag = 10; //jetzt.getDate();
         var monat = jetzt.getMonth()+ 1;
 	var info = tag + "." + monat + ".";
@@ -40,7 +48,7 @@ $.ajax({
 	document.getElementById("h1").innerHTML+= data;
   }
 });
-		Farbe();
+		//Farbe();
 	}
 
 	</script>
