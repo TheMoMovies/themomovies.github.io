@@ -18,8 +18,7 @@
         var tag = jetzt.getDate()+vort;
         var monat = jetzt.getMonth()+ 1;
 	var info = tag + "." + monat + ".";
-	var divplan = document.getElementById("plan");
-	var oTable = document.getElementsByTagName("TABLE").item(0);
+	var oTable = document.getElementById("plan").getElementsByTagName("center")[0].getElementsByTagName("font")[0].getElementsByTagName("font")[1].getElementsByTagName("TABLE")[0]
 	alert(oTable);	
         var rowLength = oTable.rows.length; 
 	alert(rowLength);
