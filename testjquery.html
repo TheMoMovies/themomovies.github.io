@@ -35,8 +35,9 @@
 		}
 	
 	window.onload = function () {
-	
+var vorw = 0;	
 var url = "http://vp.hbgym.de/w/"+(KalenderWoche()+vorw)+"/w00016.htm";
+
 $.ajax({
   crossOrigin: true,
   url: url,
