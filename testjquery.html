@@ -37,9 +37,10 @@
 	window.onload = function () {
 var vorw = 0;	
 var url = "http://vp.hbgym.de/w/"+(KalenderWoche()+vorw)+"/w00016.htm";
-
+alert(url);
 $.ajax({
   crossOrigin: true,
+  proxy: "http://www.ajax-cross-origin.com/proxy.php",
   url: url,
   success: function(data) {
 	//console.log(data);
