@@ -19,7 +19,7 @@
         var monat = jetzt.getMonth()+ 1;
 	var info = tag + "." + monat + ".";
 	var divplan = document.getElementById("plan");
-	var oTable = document.getElementsByTagName("TABLE")[0];
+	var oTable = document.getElementsByTagName("TABLE").item(0);
 	alert(oTable);	
         var rowLength = oTable.rows.length; 
 	alert(rowLength);
@@ -38,7 +38,6 @@
 	window.onload = function () {
 	
 var url = "http://vp.hbgym.de/w/"+KalenderWoche()+"/w00016.htm";
-alert(url);
 $.ajax({
   crossOrigin: true,
   url: url,
