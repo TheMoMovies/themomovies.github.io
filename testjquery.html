@@ -40,7 +40,6 @@ var url = "http://vp.hbgym.de/w/"+KalenderWoche()+"/w00016.htm";
 alert(url);
 $.ajax({
   crossOrigin: true,
-  proxy: "http://www.ajax-cross-origin.com/proxy.php",
   url: url,
   success: function(data) {
 	//console.log(data);
