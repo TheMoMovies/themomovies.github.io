@@ -1,1 +1,51 @@
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript" src="http://www.ajax-cross-origin.com/js/jquery.ajax-cross-origin.min.js"></script>
+</head>
+<body>
+	
+<script>
+   function KalenderWoche() { var KWDatum = new Date(); var DonnerstagDat = new Date(KWDatum.getTime() + 
+  	(3-((KWDatum.getDay()+6) % 7)) * 86400000); var KWJahr = DonnerstagDat.getFullYear(); var DonnerstagKW = new Date(new Date(KWJahr,0,4).getTime() + 
+ 	 (3-((new Date(KWJahr,0,4).getDay()+6) % 7)) * 86400000); var KW = Math.floor(1.5 + (DonnerstagDat.getTime() - DonnerstagKW.getTime()) / 86400000/7); 
+  	var KW1 = ('0' + KW).slice(-2);
+  	return KW1;}
+  	
+  function Farbe(vort) {
+	
+	var jetzt = new Date();
+        var tag = jetzt.getDate()+vort;
+        var monat = jetzt.getMonth()+ 1;
+	var info = tag + "." + monat + ".";
+	var aTable = document.getElementById("plan").getElementsByTagName("center")[0];
+	var oTable = aTable.getElementsByTagName("font")[0].getElementsByTagName("font")[1].getElementsByTagName("TABLE")[0];
+	alert(oTable);	
+        var rowLength = oTable.rows.length; 
+	alert(rowLength);
+		
+        for (i = 0; i < rowLength; i++){ 
+		alert(oTable.rows.item(i).cells.item(0).innerHTML);
+		/*if (oTable.rows.item(i).cells.item(0).innerHTML == info){
+			oTable.rows.item(i).style.backgroundColor = "yellow";
+		} */
+		if (oTable.rows.item(i).cells.item(0).innerHTML.indexOf(info) !== -1){
+			oTable.rows.item(i).style.backgroundColor = "yellow";
+		} 
+        }
+		}
+	
+	window.onload = function () {
+	
+    var url = "http://vp.hbgym.de/w/"+KalenderWoche()+"/w00016.htm";
+    "https://script.google.com/macros/s/AKfycbxM1-468PTJojZBmEj_JvzHDhYPQ_qdHfk5d-puvHMX1C12qTc/exec?url="+ url +"&callback=yourcallback";
+    
+    document.getElementById("plan").innerHTML+= data;
+		Farbe(0);
+		
+	}
 
+	</script>
+	<div id="plan"></div>
+</body>
+</html>
