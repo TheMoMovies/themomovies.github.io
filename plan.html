@@ -1,7 +1,5 @@
 <html>
 <head>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script type="text/javascript" src="http://www.ajax-cross-origin.com/js/jquery.ajax-cross-origin.min.js"></script>
 </head>
 <body>
 	
@@ -36,9 +34,23 @@
 		}
 	
 	window.onload = function () {
+	    var xmlHttp = null; 
+            try { xmlHttp = new XMLHttpRequest(); } 
+            catch(e) { 
+            	// Fehlerbehandlung, wenn die Schnittstelle vom Browser nicht unterstützt wird. 
+            }
+            var url1 = "http://vp.hbgym.de/w/"+KalenderWoche()+"/w00016.htm";
+    	    var url = "https://script.google.com/macros/s/AKfycbxM1-468PTJojZBmEj_JvzHDhYPQ_qdHfk5d-puvHMX1C12qTc/exec?url="+ url1 +"&callback=yourcallback";
+       	    if (xmlHttp) { xmlHttp.open('GET', url, true);
+              xmlHttp.onreadystatechange = function () { 
+		     if (xmlHttp.readyState == 4) { 
+			     alert(xmlHttp.responseText);
+			     
+		     } 
+	      }; 
+	     xmlHttp.send(null); }
 	
-    var url = "http://vp.hbgym.de/w/"+KalenderWoche()+"/w00016.htm";
-    "https://script.google.com/macros/s/AKfycbxM1-468PTJojZBmEj_JvzHDhYPQ_qdHfk5d-puvHMX1C12qTc/exec?url="+ url +"&callback=yourcallback";
+
     
     document.getElementById("plan").innerHTML+= data;
 		Farbe(0);
