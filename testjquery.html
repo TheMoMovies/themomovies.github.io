@@ -18,7 +18,7 @@
         var tag = jetzt.getDate()+vort;
         var monat = jetzt.getMonth()+ 1;
 	var info = tag + "." + monat + ".";
-	var aTable = document.getElementById("plan").getElementsByTagName("center")[0];
+	var aTable = document.getElementsByTagName("center")[0];
 	var oTable = aTable.getElementsByTagName("font")[0].getElementsByTagName("font")[1].getElementsByTagName("TABLE")[0];
 	alert(oTable);	
         var rowLength = oTable.rows.length; 
@@ -43,7 +43,7 @@ $.ajax({
   url: url,
   success: function(data) {
 	console.log(data);
-	document.getElementById("plan").innerHTML+= data;
+	document.innerHTML+= data;
   }
 });
 		Farbe(0);
