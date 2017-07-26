@@ -2,6 +2,23 @@
 <head>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script type="text/javascript" src="/jquery.ajax-cross-origin.min.js"></script>
+<style>
+ 		.button {
+			background-color: white; 
+			border: 2px solid #68A94A;
+			color: white;
+			padding: 12px 32px;
+			text-align: center;
+			display: inline-block;
+			font-size: 16px;
+			border-radius: 2px;
+		}
+		.button:hover {
+			color: white;
+			background-color: #68A94A;
+		}
+		
+</style>
 </head>
 <body>
 	
@@ -50,9 +67,9 @@ $.ajax({
 	}
 
 	</script>
-	<button type="button" onclick="Farbe(0)">Heute</button>
-	<button type="button" onclick="Farbe(1)">Morgen</button>
-	<button type="button" onclick="Farbe(2)">Übermorgen</button>
+	<button class="button" type="button" onclick="Farbe(0)">Heute</button>
+	<button class="button" type="button" onclick="Farbe(1)">Morgen</button>
+	<button class="button" type="button" onclick="Farbe(2)">Übermorgen</button>
 	<div id="plan"></div>
 </body>
 </html>
