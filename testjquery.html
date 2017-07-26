@@ -45,8 +45,8 @@ $.ajax({
   proxy: "https://script.google.com/macros/s/AKfycbxM1-468PTJojZBmEj_JvzHDhYPQ_qdHfk5d-puvHMX1C12qTc/exec",
   //proxy: "https://script.google.com/macros/s/AKfycbxM1-468PTJojZBmEj_JvzHDhYPQ_qdHfk5d-puvHMX1C12qTc/exec?url="+ url +"&callback=yourcallback",
   success: function(data) {
-	console.log(data);
-	  document.getElementById("plan").innerHTML+= data;
+	console.log(data.result);
+	  document.getElementById("plan").innerHTML+= data.result;
   }
 });
 		
