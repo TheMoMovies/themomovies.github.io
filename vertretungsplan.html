@@ -20,15 +20,15 @@
 	var info = tag + "." + monat + ".";
 	var aTable = document.getElementById("plan").getElementsByTagName("center")[0];
 	var oTable = aTable.getElementsByTagName("font")[0].getElementsByTagName("font")[1].getElementsByTagName("TABLE")[0];
-	oTable.style.backgroundColor = "red";
+	oTable.style.backgroundColor = "#E7E7E7";
         var rowLength = oTable.rows.length; 
 	
 		
         for (i = 0; i < rowLength; i++){ 
 		if (oTable.rows.item(i).cells.item(0).innerHTML.indexOf(info) !== -1){
-			oTable.rows.item(i).style.backgroundColor = "yellow";
+			oTable.rows.item(i).style.backgroundColor = "#68A94A";
 		} else{
-		    oTable.rows.item(i).style.backgroundColor = "red";
+		    oTable.rows.item(i).style.backgroundColor = "#E7E7E7";
 		}
         }
 		}
