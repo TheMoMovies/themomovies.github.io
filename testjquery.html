@@ -6,7 +6,7 @@
 <body>
 	
 <script>
-   function KalenderWoche() { var KWDatum = new Date(); var DonnerstagDat = new Date(KWDatum.getTime() + 
+   function KalenderWoche(vorw) { var KWDatum = new Date()+vorw; var DonnerstagDat = new Date(KWDatum.getTime() + 
   	(3-((KWDatum.getDay()+6) % 7)) * 86400000); var KWJahr = DonnerstagDat.getFullYear(); var DonnerstagKW = new Date(new Date(KWJahr,0,4).getTime() + 
  	 (3-((new Date(KWJahr,0,4).getDay()+6) % 7)) * 86400000); var KW = Math.floor(1.5 + (DonnerstagDat.getTime() - DonnerstagKW.getTime()) / 86400000/7); 
   	var KW1 = ('0' + KW).slice(-2);
@@ -15,7 +15,7 @@
   function Farbe(vort) {
 	
 	var jetzt = new Date();
-        var tag = jetzt.getDate()+vort;
+        var tag = jetzt.getDate()+vort-15;
         var monat = jetzt.getMonth()+ 1;
 	var info = tag + "." + monat + ".";
 	var aTable = document.getElementById("plan").getElementsByTagName("center")[0];
@@ -37,15 +37,14 @@
 	
 	window.onload = function () {
 	
-var url = "http://vp.hbgym.de/w/"+KalenderWoche()+"/w00016.htm";
+var url = "http://vp.hbgym.de/w/"+KalenderWoche(0)+"/w00016.htm";
 url = "http://vp.hbgym.de/w/28/w00016.htm";
 $.ajax({
   crossOrigin: true,
   url: url,
   proxy: "https://script.google.com/macros/s/AKfycbxM1-468PTJojZBmEj_JvzHDhYPQ_qdHfk5d-puvHMX1C12qTc/exec",
-  //proxy: "https://script.google.com/macros/s/AKfycbxM1-468PTJojZBmEj_JvzHDhYPQ_qdHfk5d-puvHMX1C12qTc/exec?url="+ url +"&callback=yourcallback",
   success: function(data) {
-	console.log(data.result);
+	//console.log(data.result);
 	  document.getElementById("plan").innerHTML+= data.result;
   }
 });
