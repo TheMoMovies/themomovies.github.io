@@ -27,7 +27,9 @@
         for (i = 0; i < rowLength; i++){ 
 		if (oTable.rows.item(i).cells.item(0).innerHTML.indexOf(info) !== -1){
 			oTable.rows.item(i).style.backgroundColor = "yellow";
-		} 
+		} else{
+		    oTable.style.backgroundColor = "red";
+		}
         }
 		}
 	
