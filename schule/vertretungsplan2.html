@@ -48,7 +48,7 @@
         for (i = 0; i < rowLength; i++){ 
 		if (oTable.rows.item(i).cells.item(0).innerHTML.indexOf(info) !== -1){
 			oTable.rows.item(i).style.backgroundColor = "#68A94A";
-			document.getElementById("plantag").innerHTML += "<table>"
+			
 			document.getElementById("plantag").innerHTML += oTable.rows.item(i).innerHTML;
 			document.getElementById("plantag").innerHTML += "</table>"
 		} else{
@@ -83,10 +83,11 @@ $.ajax({
 	<button class="button" type="button" onclick="Farbe(1)">Morgen</button>
 	<button class="button" type="button" onclick="Farbe(2)">Übermorgen</button>
 		<div id="plantag">
+			<table border="3" rules="all" bgcolor="#E7E7E7" cellpadding="1" cellspacing="1">
 	   <form>
 		   <progress id="fortschritt" value="0" max="3"></progress>
 	   </form>
-	   "Wähle einen Tag!"
+	   Wähle einen Tag!
 	</div>
 	<div id="plan">
 
