@@ -33,9 +33,10 @@
   function Farbe(vort) {
 	
 	var jetzt = new Date();
-        var tag = jetzt.getDate()+vort+6;
-        var monat = jetzt.getMonth();
+        var tag = jetzt.getDate()+vort;
+        var monat = jetzt.getMonth()+1;
 	var info = tag + "." + monat + ".";
+	 // info = ""; 
 	var aTable = document.getElementById("plan").getElementsByTagName("center")[0];
 	var oTable = aTable.getElementsByTagName("font")[0].getElementsByTagName("font")[1].getElementsByTagName("TABLE")[0];
 	oTable.style.backgroundColor = "#E7E7E7";
@@ -45,6 +46,8 @@
         for (i = 0; i < rowLength; i++){ 
 		if (oTable.rows.item(i).cells.item(0).innerHTML.indexOf(info) !== -1){
 			oTable.rows.item(i).style.backgroundColor = "#68A94A";
+			
+			document.getElementById("plantag").innerHTML += oTable.rows.item(i);
 		} else{
 		    oTable.rows.item(i).style.backgroundColor = "#E7E7E7";
 		}
@@ -56,7 +59,8 @@
 	
 	window.onload = function () {
 	Fortschritt(1);
-var url = "http://vp.hbgym.de/w/"+KalenderWoche(0)+"/w00020.htm";
+var url = "http://vp.hbgym.de/w/"+KalenderWoche(0)+"/w00016.htm";
+
 $.ajax({
   crossOrigin: true,
   url: url,
@@ -76,6 +80,9 @@ $.ajax({
 	<button class="button" type="button" onclick="Farbe(1)">Morgen</button>
 	<button class="button" type="button" onclick="Farbe(2)">Übermorgen</button>
 	<div id="plan">
+
+	</div>
+	<div id="plantag">
 	   <form>
 		   <progress id="fortschritt" value="0" max="3"></progress>
 	   </form>
