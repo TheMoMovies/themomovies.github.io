@@ -48,8 +48,9 @@
         for (i = 0; i < rowLength; i++){ 
 		if (oTable.rows.item(i).cells.item(0).innerHTML.indexOf(info) !== -1){
 			oTable.rows.item(i).style.backgroundColor = "#68A94A";
-			
+			document.getElementById("plantag").innerHTML += "<table>"
 			document.getElementById("plantag").innerHTML += oTable.rows.item(i);
+			document.getElementById("plantag").innerHTML += "</table>"
 		} else{
 		    oTable.rows.item(i).style.backgroundColor = "#E7E7E7";
 		}
