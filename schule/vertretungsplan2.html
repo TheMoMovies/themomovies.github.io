@@ -18,7 +18,9 @@
 			color: white;
 			background-color: #68A94A;
 		}
-		
+		#plan {
+			visibility: hidden;
+	}
 </style>
 </head>
 <body>
@@ -33,7 +35,7 @@
   function Farbe(vort) {
 	
 	var jetzt = new Date();
-        var tag = jetzt.getDate()+vort;
+        var tag = jetzt.getDate()+vort+2;
         var monat = jetzt.getMonth()+1;
 	var info = tag + "." + monat + ".";
 	 // info = ""; 
