@@ -36,6 +36,7 @@
         var tag = jetzt.getDate()+vort;
         var monat = jetzt.getMonth()+1;
 	var info = tag + "." + monat + ".";
+	  alert(info);
 	var aTable = document.getElementById("plan").getElementsByTagName("center")[0];
 	var oTable = aTable.getElementsByTagName("font")[0].getElementsByTagName("font")[1].getElementsByTagName("TABLE")[0];
 	oTable.style.backgroundColor = "#E7E7E7";
@@ -56,7 +57,8 @@
 	
 	window.onload = function () {
 	Fortschritt(1);
-var url = "http://vp.hbgym.de/w/"+KalenderWoche(0)+"/w00016.htm";
+var url = "http://vp.hbgym.de/w/"+KalenderWoche(0)+"/w00020.htm";
+alert(url);
 $.ajax({
   crossOrigin: true,
   url: url,
