@@ -65,7 +65,7 @@ $.ajax({
   url: url,
   proxy: "https://script.google.com/macros/s/AKfycbxM1-468PTJojZBmEj_JvzHDhYPQ_qdHfk5d-puvHMX1C12qTc/exec",
   success: function(data, response, status, ) {
-	  var ct = data.getResponseHeader("content-type") || "";
+	  var ct = response;
 	  console.log(ct);
 	  document.getElementById("plan").innerHTML = data.result;
 	  
