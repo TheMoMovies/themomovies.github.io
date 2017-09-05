@@ -64,7 +64,7 @@ $.ajax({
   crossOrigin: true,
   url: url,
   proxy: "https://script.google.com/macros/s/AKfycbxM1-468PTJojZBmEj_JvzHDhYPQ_qdHfk5d-puvHMX1C12qTc/exec",
-  success: function(data, xhr) {
+  success: function(data, response, status, xhr) {
 	  var ct = xhr.getResponseHeader("content-type") || "";
 	  console.log(ct);
 	  document.getElementById("plan").innerHTML = data.result;
