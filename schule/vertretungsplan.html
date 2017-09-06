@@ -24,10 +24,11 @@
 <body>
 	
 <script>
-   function KalenderWoche() { var KWDatum = new Date(); var DonnerstagDat = new Date(KWDatum.getTime() + 
+   function KalenderWoche(vorw) { var KWDatum = new Date(); var DonnerstagDat = new Date(KWDatum.getTime() + 
   	(3-((KWDatum.getDay()+6) % 7)) * 86400000); var KWJahr = DonnerstagDat.getFullYear(); var DonnerstagKW = new Date(new Date(KWJahr,0,4).getTime() + 
  	 (3-((new Date(KWJahr,0,4).getDay()+6) % 7)) * 86400000); var KW = Math.floor(1.5 + (DonnerstagDat.getTime() - DonnerstagKW.getTime()) / 86400000/7); 
-  	var KW1 = ('0' + KW).slice(-2);
+  	var KW1 = KW + vorw;
+	KW1 = ('0' + KW1).slice(-2);
   	return KW1}
   	
   function Farbe(vort) {
@@ -58,7 +59,7 @@
 	window.onload = function () {
 	Fortschritt(1);
 	
-var url = "http://vp.hbgym.de/w/"+KalenderWoche()+"/w00020.htm";
+var url = "http://vp.hbgym.de/w/"+KalenderWoche(0)+"/w00020.htm";
 
 $.ajax({
   crossOrigin: true,
