@@ -72,6 +72,7 @@ $.ajax({
 	//console.log(data.result);
 	  document.getElementById("plan").innerHTML = data.result;
 	  Fortschritt(3);
+	  Farbe(0);
   }
 });
 		
@@ -86,7 +87,7 @@ $.ajax({
 	   <form>
 		   <progress id="fortschritt" value="0" max="3"></progress>
 	   </form>
-	   Wähle einen Tag!
+	   
 	</div>
 	<div id="plan">
 
