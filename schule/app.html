@@ -29,8 +29,9 @@
    function KalenderWoche(vorw) { var KWDatum = new Date(); var DonnerstagDat = new Date(KWDatum.getTime() + 
   	(3-((KWDatum.getDay()+6) % 7)) * 86400000); var KWJahr = DonnerstagDat.getFullYear(); var DonnerstagKW = new Date(new Date(KWJahr,0,4).getTime() + 
  	 (3-((new Date(KWJahr,0,4).getDay()+6) % 7)) * 86400000); var KW = Math.floor(1.5 + (DonnerstagDat.getTime() - DonnerstagKW.getTime()) / 86400000/7); 
-  	var KW1 = ('0' + KW).slice(-2);
-  	return KW1+vorw;}
+  	var KW1 = KW + vorw;
+	KW1 = ('0' + KW1).slice(-2);
+  	return KW1;}
   	
   function Farbe(vort) {
 	
@@ -38,7 +39,6 @@
         var tag = jetzt.getDate()+vort+2;
         var monat = jetzt.getMonth()+1;
 	var info = tag + "." + monat + ".";
-	 // info = ""; 
 	var aTable = document.getElementById("plan").getElementsByTagName("center")[0];
 	var oTable = aTable.getElementsByTagName("font")[0].getElementsByTagName("font")[1].getElementsByTagName("TABLE")[0];
 	oTable.style.backgroundColor = "#E7E7E7";
@@ -63,7 +63,6 @@
 	window.onload = function () {
 	Fortschritt(1);
 var url = "http://vp.hbgym.de/w/"+KalenderWoche(0)+"/w00016.htm";
-url = "http://vp.hbgym.de/w/36/w00016.htm";
 $.ajax({
   crossOrigin: true,
   url: url,
