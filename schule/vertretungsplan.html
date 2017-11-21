@@ -56,10 +56,10 @@
 	 document.getElementById('fortschritt').value = a;
  }
 	
-	window.onload = function () {
+function vertretungsPlan(vorww) {
 	Fortschritt(1);
 	
-var url = "http://vp.hbgym.de/w/"+KalenderWoche(0)+"/w00020.htm";
+var url = "http://vp.hbgym.de/w/"+KalenderWoche(vorww)+"/w00020.htm";
 
 $.ajax({
   crossOrigin: true,
@@ -74,11 +74,11 @@ $.ajax({
 });Fortschritt(3);
 		
 	}
-
+window.onload = vertretungsPlan(0);
 	</script>
 	<button class="button" type="button" onclick="Farbe(0)">Heute</button>
 	<button class="button" type="button" onclick="Farbe(1)">Morgen</button>
-	<button class="button" type="button" onclick="Farbe(2)">Übermorgen</button>
+	<button class="button" type="button" onclick="">Nächste Woche</button>
 	<div id="plan">
 	 <form>
 		   <progress id="fortschritt" value="0" max="3"></progress>
