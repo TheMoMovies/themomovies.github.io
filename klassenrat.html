@@ -123,7 +123,7 @@
 		var extrazeit = 0;
 		var zeitspanne;
 		var interval;
-	
+		var wo;
 		function countDownUp() {
 			zeitspanne =  Date.parse(zielzeit) - Date.parse(new Date());
 			zeitspanne = zeitspanne + extrazeit;
@@ -140,16 +140,22 @@
 				var Anzeige= days + ":" + ('0' + hours).slice(-2) + ":" + ('0' + minutes).slice(-2) + ":" + ('0' + seconds).slice(-2);
 				
 		
-			if(zeitspanne<=0){
-      			clearInterval(interval);
-      			Anzeige = "Zeit abgelaufen!";
-      			interval2 = setInterval("countDownUp2()", 1000);
-      			document.getElementById('Uhr').style.color = '#d50000';
+			if(zeitspanne=0){
+      				document.getElementById('Uhr').style.color = '#d50000';
 				document.getElementsByTagName("audio")[0].play();
-      		}
+      			}
       		var div = document.getElementById("Uhr");
 			div.textContent = Anzeige;
-		}
+		};
+		
+		function themaErledigt(wo) {
+			clearInterval(interval+ wo);
+      			Anzeige = "Zeit abgelaufen!";
+      			interval+wo = setInterval("countDownUp2()", 1000);
+      			
+			
+		}		
+		
 		interval = setInterval("countDownUp()", 1000)
 		
 		var zielzeit2 = new Date();
