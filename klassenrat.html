@@ -148,10 +148,10 @@
 			div.textContent = Anzeige;
 		};
 		
-		function themaErledigt(wo) {
-			clearInterval(interval+ wo);
+		function themaErledigt() {
+			clearInterval(interval);
       			Anzeige = "Zeit abgelaufen!";
-      			interval+wo = setInterval("countDownUp2()", 1000);
+      			interval2 = setInterval("countDownUp2()", 1000);
       			
 			
 		}		
@@ -178,11 +178,8 @@
 			if (days2 >= 1)
 				var Anzeige2= days2 + ":" + ('0' + hours2).slice(-2) + ":" + ('0' + minutes2).slice(-2) + ":" + ('0' + seconds2).slice(-2);
 		
-			if(zeitspanne2<=0){
-      			clearInterval(interval2);
-      			Anzeige2 = "Zeit abgelaufen!";
-				interval3 = setInterval("countDownUp3()", 1000);
-      			document.getElementById('Uhr2').style.color = '#d50000';
+			if(zeitspanne2=0){
+      				document.getElementById('Uhr2').style.color = '#d50000';
 				document.getElementsByTagName("audio")[0].play();
       			
 
@@ -190,7 +187,13 @@
       		var div = document.getElementById("Uhr2");
 			div.textContent = Anzeige2;
 		}
-		
+		function themaErledigt2() {
+			clearInterval(interval2);
+      			Anzeige = "Zeit abgelaufen!";
+      			interval3 = setInterval("countDownUp3()", 1000);
+      			
+			
+		}
 		var zielzeit3 = new Date();
 		var extrazeit3 = 100000;
 		var zeitspanne3;
@@ -211,9 +214,7 @@
 			if (days3 >= 1)
 				var Anzeige3 = days3 + ":" + ('0' + hours3).slice(-2) + ":" + ('0' + minutes3).slice(-2) + ":" + ('0' + seconds3).slice(-2);
 		
-			if(zeitspanne3<=0){
-      			clearInterval(interval3);
-      			Anzeige3 = "Zeit abgelaufen!";
+			if(zeitspanne3=0) {
       			document.getElementById('Uhr3').style.color = '#d50000';
 				document.getElementsByTagName("audio")[0].play();
       			
@@ -222,6 +223,10 @@
       		var div = document.getElementById("Uhr3");
 			div.textContent = Anzeige3;
 		}
+		function themaErledigt2() {
+			clearInterval(interval2);
+      		};
+	
 		
 		var zeit = new Date();
 		var intervalzeit;
@@ -257,6 +262,15 @@
 			startRedeZeit();
 			}
 			if (event.keyCode == 84) {
+			stopRedezeit();
+			}
+			if (event.keyCode == 81) {
+			
+			}
+			if (event.keyCode == 65) {
+			stopRedezeit();
+			}
+			if (event.keyCode == 89) {
 			stopRedezeit();
 			}
 		}
