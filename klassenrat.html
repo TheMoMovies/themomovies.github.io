@@ -123,7 +123,7 @@
 		var extrazeit = 0;
 		var zeitspanne;
 		var interval;
-		var wo;
+		var audioplayed = false;
 		function countDownUp() {
 			zeitspanne =  Date.parse(zielzeit) - Date.parse(new Date());
 			zeitspanne = zeitspanne + extrazeit;
@@ -140,9 +140,12 @@
 				var Anzeige= days + ":" + ('0' + hours).slice(-2) + ":" + ('0' + minutes).slice(-2) + ":" + ('0' + seconds).slice(-2);
 				
 		
-			if(zeitspanne=0){
+			if(zeitspanne<=0){
       				document.getElementById('Uhr').style.color = '#d50000';
-				document.getElementsByTagName("audio")[0].play();
+				if (audioplayed = false) {
+					document.getElementsByTagName("audio")[0].play();
+					audioplayed = true;
+				}
       			}
       		var div = document.getElementById("Uhr");
 			div.textContent = Anzeige;
@@ -162,7 +165,7 @@
 		var extrazeit2 = 5000;
 		var zeitspanne2;
 		var interval2;
-	
+		var audioplayed2 = false;
 		function countDownUp2() {
 			zeitspanne2 =  Date.parse(zielzeit2) - Date.parse(new Date());
 			zeitspanne2 = zeitspanne2 + extrazeit2;
@@ -178,9 +181,12 @@
 			if (days2 >= 1)
 				var Anzeige2= days2 + ":" + ('0' + hours2).slice(-2) + ":" + ('0' + minutes2).slice(-2) + ":" + ('0' + seconds2).slice(-2);
 		
-			if(zeitspanne2=0){
+			if(zeitspanne2<=0){
       				document.getElementById('Uhr2').style.color = '#d50000';
-				document.getElementsByTagName("audio")[0].play();
+				if (audioplayed2 = false) {
+					document.getElementsByTagName("audio")[0].play();
+					audioplayed2 = true;
+				}
       			
 
       		}
@@ -198,7 +204,7 @@
 		var extrazeit3 = 100000;
 		var zeitspanne3;
 		var interval3;
-	
+		var audioplayed3 = false;
 		function countDownUp3() {
 			zeitspanne3 =  Date.parse(zielzeit3) - Date.parse(new Date());
 			zeitspanne3 = zeitspanne3 + extrazeit3;
@@ -214,9 +220,12 @@
 			if (days3 >= 1)
 				var Anzeige3 = days3 + ":" + ('0' + hours3).slice(-2) + ":" + ('0' + minutes3).slice(-2) + ":" + ('0' + seconds3).slice(-2);
 		
-			if(zeitspanne3=0) {
+			if(zeitspanne3<=0) {
       			document.getElementById('Uhr3').style.color = '#d50000';
-				document.getElementsByTagName("audio")[0].play();
+				if (audioplayed3 = false) {
+					document.getElementsByTagName("audio")[0].play();
+					audioplayed3 = true;
+				}
       			
 
       		}
